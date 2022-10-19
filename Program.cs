@@ -1,60 +1,96 @@
-﻿/*Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+﻿/*
+Задача 34
+Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
-Console.Clear();
-Console.WriteLine("введите первое число: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите второе число: ");
-int b = Convert.ToInt32(Console.ReadLine());
-if (b < 0)
-    b = b * (-1);
-int result = 1;
-for (int i = 1; i <= b; i++)
-    result = result * a;
-Console.WriteLine(result);
-*/
-
-/*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.(первое решение)
-
-Console.Clear();
-Console.WriteLine("введите число: ");
-int n = Convert.ToInt32(Console.ReadLine());
-if (n < 0)
-    n = n * (-1);
-int s = Convert.ToString(n).Length; 
-int q = 0;
-int result = 0;
-for (int i = 1; i < s; i++)
+void InputArray(int[] array)
 {
-    q = n % 10;
-    result = result + q;
-    n = n / 10;
+    for (int i = 0; i < array.Length; i++)
+    array[i] = new Random().Next(100, 1000);
 }
-Console.WriteLine(result);
-*/
-
-/*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.(второе решение)
-
-Console.Clear();
-Console.WriteLine("введите число: ");
-int n = Convert.ToInt32(Console.ReadLine());
-if (n < 0)
-    n = n * (-1);
-int result = 0;
-int q = 0;
-while (n > 10)
+int ReleaseArray(int[] array)
 {
-    q = n % 10;
-    result = result + q;
-    n = n /10;
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+{
+        if (array[i] % 2 == 0)
+        count++; 
 }
-result = result + n;
-Console.WriteLine(result);
+    return count;
+}
+Console.Clear();
+Console.Write("Введите кол-во элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+InputArray(array);
+Console.WriteLine($"Начальнаый массив: [{string.Join(", ", array)}]");
+Console.Write("колличество четных элементов:");
+Console.Write(ReleaseArray(array));
 */
 
-/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+/* 
+Задача 36: 
+Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+void InputArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    array[i] = new Random().Next(-100, 100);
+}
+int sum(int[] array)
+{
+    int summ = 0;
+    for (int i = 0; i < array.Length; i++)
+{
+        if (i % 2 == 0)
+        summ = summ + array[i];
+}
+    return summ;
+}
 Console.Clear();
-int[] array = new int[8];
-for (int i = 0; i < array.Length; i++)
-    array[i] = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine($"[{string.Join(", ", array)}]");
+Console.Write("Введите кол-во элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+InputArray(array);
+Console.WriteLine($"Начальнаый массив: [{string.Join(", ", array)}]");
+Console.Write("сумма элементов на нечетных местах:");
+Console.Write(sum(array));
+*/
+/* 
+Задача 38: 
+Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+void InputArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    array[i] = new Random().Next(-100, 100);
+}
+int maximum(int[] array)
+{
+    int a = array[1];
+    for (int i = 0; i < array.Length; i++)
+{
+        if (a < array[i])
+            a = array[i];
+}
+    return a;
+}
+int minimum(int[] array)
+{
+    int q = array[1];
+    for (int i = 0; i < array.Length; i++)
+{
+        if (q > array[i])
+            q = array[i];
+}
+    return q;
+}
+Console.Clear();
+Console.Write("Введите кол-во элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+InputArray(array);
+Console.WriteLine($"Начальнаый массив: [{string.Join(", ", array)}]");
+int max = maximum(array);
+int min = minimum(array);
+Console.Write("разница между минимальным и максимальным элементом:");
+Console.Write(max - min);
 */
