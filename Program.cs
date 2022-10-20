@@ -27,9 +27,7 @@ Console.Write("колличество четных элементов:");
 Console.Write(ReleaseArray(array));
 */
 
-/* 
-Задача 36: 
-Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
 
 void InputArray(int[] array)
 {
@@ -39,9 +37,9 @@ void InputArray(int[] array)
 int sum(int[] array)
 {
     int summ = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 1; i < array.Length; i++)
 {
-        if (i % 2 == 0)
+        if (i % 2 == 1)
         summ = summ + array[i];
 }
     return summ;
@@ -54,7 +52,7 @@ InputArray(array);
 Console.WriteLine($"Начальнаый массив: [{string.Join(", ", array)}]");
 Console.Write("сумма элементов на нечетных местах:");
 Console.Write(sum(array));
-*/
+
 /* 
 Задача 38: 
 Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
