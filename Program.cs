@@ -10,3 +10,6 @@
         Console.WriteLine();
     }
 }
+
+Console.Clear();
+int[,] matrix = new int[3, 3];
